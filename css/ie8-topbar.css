@@ -55,8 +55,7 @@
   border-color: rgba(255, 255, 255, 0.5) transparent transparent transparent;
   margin-top: -2.5px;
 }
-.lt-ie9 .top-bar-section .has-dropdown.moved { position: relative; }
-.lt-ie9 .top-bar-section .has-dropdown.moved > .dropdown { visibility: hidden; }
+.lt-ie9 .top-bar-section .has-dropdown { position: relative; }
 .lt-ie9 .top-bar-section .has-dropdown:hover > .dropdown,
 .lt-ie9 .top-bar-section .has-dropdown:active > .dropdown { visibility: visible; }
 .lt-ie9 .top-bar-section .has-dropdown .dropdown li.has-dropdown > a:after {
@@ -104,9 +103,43 @@
 }
 .lt-ie9 .top-bar-section ul.right li .dropdown li .dropdown { right: 100%; }
 
+.lt-ie9 .top-bar .top-bar-section ul > li > a{
+  z-index: 9999; /* makes the first child links clickable */
+
+}
+
+/*dropdown level one*/
+
+.lt-ie9 .top-bar .top-bar-section ul > li.has-dropdown .dropdown{
+  visibility: hidden;
+}
+
+.lt-ie9 .top-bar .top-bar-section ul > li.has-dropdown:hover .dropdown{
+  visibility: visible; /* makes the dropdown visible on hover */
+}
+
+/*dropdown level two*/
+
+.lt-ie9 .top-bar .top-bar-section ul > li.has-dropdown  ul.dropdown > li.has-dropdown .dropdown{
+  visibility: hidden;
+}
+.lt-ie9 .top-bar .top-bar-section ul > li.has-dropdown  ul.dropdown > li.has-dropdown:hover .dropdown{
+  visibility: visible; /* makes the dropdown visible on hover */
+}
+/*dropdown level three*/
+
+.lt-ie9 .top-bar .top-bar-section ul li ul.dropdown li.has-dropdown ul.dropdown li.has-dropdown .dropdown{
+  visibility: hidden;
+}
+.lt-ie9 .top-bar .top-bar-section ul li ul.dropdown li.has-dropdown ul.dropdown li.has-dropdown:hover .dropdown{
+  visibility: visible; /* makes the dropdown visible on hover */
+}
+.lt-ie9 .top-bar-section .dropdown li a:hover{
+  background: #000;
+}
 .lt-ie9 .top-bar-section .has-dropdown > a:after {
  border: 0 none !important;
 }
 .lt-ie9 .top-bar-section .has-dropdown > a {
- background: url("/img/white-dropdown-arrow.png") no-repeat scroll 92% 18px transparent;
+ background: url("../img/white-dropdown-arrow.png") no-repeat scroll 92% 18px transparent;
 }
