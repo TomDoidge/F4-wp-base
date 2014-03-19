@@ -125,7 +125,6 @@ if (!isset($content_width)) $content_width = 637;
 /****************************************************************************************/
 function load_custom_scripts() {
   wp_enqueue_script('js','http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js', array(), false, true);
-  wp_enqueue_script('modernizr-js', THEMEROOT . '/js/vendor/custom.modernizr.js', array(), false, true);
   wp_enqueue_script('foundation-js', THEMEROOT . '/js/foundation/foundation.js', array(), false, true);
   wp_enqueue_script('topbar', THEMEROOT . '/js/foundation/foundation.topbar.js', array(), false, true);
 }

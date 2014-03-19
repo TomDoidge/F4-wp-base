@@ -28,6 +28,10 @@
   ================================================== -->
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
 
+  <!-- Scripts
+  ================================================== -->
+  <script src="<?php print THEMEROOT; ?>/js/vendor/custom.modernizr.js"></script>
+
   <?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); ?>
 
   <?php wp_head(); ?>
