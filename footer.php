@@ -21,6 +21,8 @@
   </div> <!-- end of copyright row -->
 
 </footer>
+
+
 <?php wp_footer(); ?>
 
 

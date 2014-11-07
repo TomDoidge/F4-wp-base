@@ -170,33 +170,54 @@ if (!isset($content_width)) $content_width = 637;
 /****************************************************************************************/
 /* Load JS files
 /****************************************************************************************/
+
+// load Foundation initialisation script in footer
+if ( ! function_exists( 'foundation_zep' ) ) {
+  function foundation_zep() { ?>
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? '<? bloginfo('template_directory'); ?>/js/vendor/zepto' : '<? bloginfo('template_directory'); ?>/js/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+  <?php }
+}
+add_action( 'wp_footer', 'foundation_zep', 1 );
+
 function load_custom_scripts() {
 
   // removes WP version of jQuery
 	wp_deregister_script('jquery');
-
-  // loads jQuery 1.10.2
-  wp_enqueue_script( 'jquery',  THEMEROOT . '/js/vendor/jquery.js', array(), '1.10.2', false );
 
   // modernizr
   wp_enqueue_script( 'modernizr',  THEMEROOT . '/js/vendor/custom.modernizr.js', array(), '2.6.2', false );
 
   // wp_enqueue_script('jquery','http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js', array(), false, true);
 
+  // loads jQuery 1.10.2
+  // wp_enqueue_script( 'jquery',  THEMEROOT . '/js/vendor/jquery.js', array(), '1.10.2', false );
+
   // adding Foundation scripts file in the footer
-  wp_enqueue_script('foundation-js', THEMEROOT . '/js/foundation/foundation.js', array( 'jquery' ), $theme_version, true );
+  wp_enqueue_script('foundation-js', THEMEROOT . '/js/foundation/foundation.js', array(), $theme_version, true );
 
 	// register main stylesheet
   wp_enqueue_style( 'theme-stylesheet', get_template_directory_uri() . '/css/app.css', array(), $theme_version, 'all' );
 
   // adding Foundation top-bar
-  wp_enqueue_script('topbar', THEMEROOT . '/js/foundation/foundation.topbar.js', array( 'jquery' ), $theme_version, true );
+  wp_enqueue_script('topbar', THEMEROOT . '/js/foundation/foundation.topbar.js', array( 'foundation-js' ), $theme_version, true );
 
   //adding scripts file in the footer
-  wp_enqueue_script( 'theme-js',  THEMEROOT . '/js/scripts.js', array( 'jquery' ), $theme_version, true );
+  // wp_enqueue_script( 'theme-js',  THEMEROOT . '/js/scripts.js', array( 'foundation-js' ), $theme_version, true );
 
 }
 add_action('wp_enqueue_scripts', 'load_custom_scripts');
+
+// load Foundation initialisation script in footer
+if ( ! function_exists( 'foundation_init' ) ) {
+  function foundation_init() { ?>
+  <script type="text/javascript">$(document).foundation();</script>
+  <?php }
+}
+add_action( 'wp_footer', 'foundation_init', 9999 );
 
 
 
@@ -428,5 +449,8 @@ function parklife_excerpt_more($more) {
 	// edit here if you like
 return '...  <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="'. __('Read', 'parklifetheme') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'parklifetheme') .'</a>';
 }
+
+//hide admin bar
+add_filter('show_admin_bar', '__return_false');
 
 ?>
