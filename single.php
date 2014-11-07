@@ -53,6 +53,18 @@
       <h5>Article by <?php the_author_posts_link(); ?></h5>
       <?php the_author_meta('description'); ?>
 
+      <!-- next and previous posts -->
+      <div class="navigation">
+        <div class="alignleft">
+        <?php previous_post('&laquo; %',
+         'Toward The Past: ', 'yes'); ?>
+        </div>
+        <div class="alignright">
+        <?php next_post('% &raquo; ',
+         'Toward The Future: ', 'yes'); ?>
+        </div>
+      </div> <!-- end navigation -->
+
     </div><!-- End of 12 column -->
 
       <?php endwhile; else : ?><!-- if no posts found-->

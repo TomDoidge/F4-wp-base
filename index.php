@@ -32,6 +32,7 @@
     <div class="large-8 columns">
       <p class="article-nav-pre"><?php next_posts_link('&larr; Older Posts'); ?></p>
       <p class="article-nav-next"><?php previous_posts_link('Newer Posts &rarr;'); ?></p>
+      <?php parklife_page_navi(); ?>
     </div>
 
   </div><!-- End of Main content -->

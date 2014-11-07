@@ -9,9 +9,7 @@
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width">
-  <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
-  <meta name="description" content="<?php bloginfo('description'); ?>">
-  <meta name="author" content="">
+  <title><?php wp_title(''); ?></title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -24,13 +22,6 @@
   <link rel="apple-touch-icon" sizes="72x72" href="<?php print IMAGES; ?>/apple-touch-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="<?php print IMAGES; ?>/apple-touch-icon-114x114.png">
 
-  <!-- CSS
-  ================================================== -->
-  <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
-
-  <!-- Scripts
-  ================================================== -->
-  <script src="<?php print THEMEROOT; ?>/js/vendor/custom.modernizr.js"></script>
 
   <?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); ?>
 

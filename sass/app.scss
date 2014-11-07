@@ -54,12 +54,16 @@
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
 
+//Compass
+// @import "compass/css3";
+
 // My Custom Styling
-@import "custom";
+@import "custom-styles/general";
 
-// IE8 Fix - gist.github.com/Celleb/6605909
-@import "columnfix";
-
+// IE8 Fixes
+@import "ie8-fixes/ie8-fix-general";
+@import "ie8-fixes/ie8-fix-custom";
+@import "ie8-fixes/ie8-fix-column"; //gist.github.com/Celleb/6605909
 .lt-ie9 {
     @include columnFix;
 }
