@@ -53,17 +53,13 @@
       <h5>Article by <?php the_author_posts_link(); ?></h5>
       <?php the_author_meta('description'); ?>
 
-      <!-- next and previous posts -->
-      <div class="navigation">
-        <div class="alignleft">
-        <?php previous_post('&laquo; %',
-         'Toward The Past: ', 'yes'); ?>
-        </div>
-        <div class="alignright">
-        <?php next_post('% &raquo; ',
-         'Toward The Future: ', 'yes'); ?>
-        </div>
-      </div> <!-- end navigation -->
+    <!-- Article nav -->
+
+    <div class="large-8 columns">
+      <p class="article-nav-pre"><?php next_posts_link('&larr; Older Posts'); ?></p>
+      <p class="article-nav-next"><?php previous_posts_link('Newer Posts &rarr;'); ?></p>
+      <?php parklife_page_navi(); ?>
+    </div>
 
     </div><!-- End of 12 column -->
 

@@ -176,7 +176,7 @@ if ( ! function_exists( 'foundation_zep' ) ) {
   function foundation_zep() { ?>
   <script>
   document.write('<script src=' +
-  ('__proto__' in {} ? '<? bloginfo('template_directory'); ?>/js/vendor/zepto' : '<? bloginfo('template_directory'); ?>/js/vendor/jquery') +
+  ('__proto__' in {} ? '<?php echo esc_url( get_template_directory_uri()) ?>/js/vendor/zepto' : '<?php echo esc_url( get_template_directory_uri() ) ?>/js/vendor/jquery') +
   '.js><\/script>')
   </script>
   <?php }
